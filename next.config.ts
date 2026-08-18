@@ -1,6 +1,6 @@
 import type { NextConfig } from "next";
 
-const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/+$|\/$/g, "");
+const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/+$/g, "");
 
 const nextConfig: NextConfig = {
   output: "export",

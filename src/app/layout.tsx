@@ -3,11 +3,12 @@ import { Inter } from "next/font/google";
 import Script from "next/script";
 import "./globals.css";
 import { TrackingScripts } from "@/components/TrackingScripts";
-import { DESIGN_ASSETS, assetUrl } from "@/config/designAssets";
+import { DESIGN_ASSETS } from "@/config/designAssets";
 
 const inter = Inter({ subsets: ["latin", "vietnamese"], variable: "--font-inter" });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || "https://son-tnano.vn";
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://son-tnano.vn").replace(/\/+$/g, "");
+const absoluteAssetUrl = (path: string) => `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -21,7 +22,7 @@ export const metadata: Metadata = {
       "Sơn TNANO - Tập Đoàn Quốc Tế Vạn Xuân, tư vấn màu sơn, báo giá và chính sách đại lý.",
     url: siteUrl,
     siteName: "Sơn TNANO",
-    images: [{ url: assetUrl(DESIGN_ASSETS.sections.promotion.src), width: 1536, height: 1536 }],
+    images: [{ url: absoluteAssetUrl(DESIGN_ASSETS.sections.promotion.src), width: 1536, height: 1536 }],
     locale: "vi_VN",
     type: "website",
   },
@@ -29,7 +30,7 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "Sơn TNANO | Sơn Nội Ngoại Thất Cao Cấp",
     description: "Tư vấn màu sơn, báo giá và đăng ký đại lý TNANO.",
-    images: [assetUrl(DESIGN_ASSETS.sections.promotion.src)],
+    images: [absoluteAssetUrl(DESIGN_ASSETS.sections.promotion.src)],
   },
   robots: { index: true, follow: true },
 };
@@ -40,7 +41,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     "@type": "Organization",
     name: "Sơn TNANO - Tập Đoàn Quốc Tế Vạn Xuân",
     url: siteUrl,
-    logo: `${siteUrl}${DESIGN_ASSETS.logo.src}`,
+    logo: absoluteAssetUrl(DESIGN_ASSETS.logo.src),
     contactPoint: [
       { "@type": "ContactPoint", telephone: "02373586999", contactType: "sales", areaServed: "VN" },
       { "@type": "ContactPoint", telephone: "0974780678", contactType: "sales", areaServed: "VN" },

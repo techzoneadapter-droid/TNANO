@@ -22,6 +22,9 @@ type UtmData = {
 
 const commonInput = "input bg-white/95 md:min-h-[52px]";
 const errorMessage = "Có lỗi xảy ra. Vui lòng gọi hotline 0237 358 6999 hoặc 0974 780 678.";
+const googleSheetsWebhookUrl =
+  process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL ||
+  "https://script.google.com/macros/s/AKfycbxthWCWce8QTfGk2Z-HnEqotnrbAhpzvkxodmVg6xCFAeiUy5m2i_ZiyVo-75KGLBg/exec";
 
 function getStoredUtm(): UtmData {
   if (typeof window === "undefined") {
@@ -88,8 +91,7 @@ export function LeadForm({ kind, compact = false, interest = "" }: LeadFormProps
       return;
     }
 
-    const webhookUrl = process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL;
-    if (!webhookUrl) {
+    if (!googleSheetsWebhookUrl) {
       setError(errorMessage);
       return;
     }
@@ -114,10 +116,11 @@ export function LeadForm({ kind, compact = false, interest = "" }: LeadFormProps
     Object.entries(payload).forEach(([key, value]) => body.append(key, String(value || "")));
 
     try {
-      await fetch(webhookUrl, {
+      await fetch(googleSheetsWebhookUrl, {
         method: "POST",
         body,
         mode: "no-cors",
+        keepalive: true,
       });
     } catch {
       setError(errorMessage);
