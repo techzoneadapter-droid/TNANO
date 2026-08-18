@@ -1,0 +1,119 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+  scroll-behavior: smooth;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  background: #f7f9fd;
+  color: #07183f;
+  overflow-x: hidden;
+}
+
+img,
+video {
+  max-width: 100%;
+}
+
+.section-shell {
+  @apply mx-auto w-full max-w-7xl px-4 sm:px-6 lg:px-8;
+}
+
+.gold-text {
+  background: linear-gradient(180deg, #fff3bd 0%, #f6c85f 45%, #b87916 100%);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.blue-panel {
+  background:
+    radial-gradient(circle at 20% 0%, rgba(246, 200, 95, 0.18), transparent 34%),
+    linear-gradient(135deg, #07183f 0%, #0d3d91 100%);
+}
+
+.input {
+  @apply min-h-12 w-full rounded-md border border-slate-200 bg-white px-3 py-3.5 text-base outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30 sm:text-sm;
+}
+
+.label {
+  @apply text-xs font-bold uppercase tracking-wide text-slate-600;
+}
+
+.btn-primary {
+  @apply inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-redcta px-5 py-3 text-sm font-extrabold uppercase text-white shadow-lg shadow-redcta/25 transition hover:-translate-y-0.5 hover:bg-red-700;
+}
+
+.btn-secondary {
+  @apply inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-gold/70 bg-gold px-5 py-3 text-sm font-extrabold uppercase text-navy shadow-glow transition hover:-translate-y-0.5 hover:bg-yellow-300;
+}
+
+.btn-ghost {
+  @apply inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-white/25 bg-white/10 px-5 py-3 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20;
+}
+
+.project-carousel {
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none;
+}
+
+.project-carousel::-webkit-scrollbar {
+  display: none;
+}
+
+.project-card {
+  width: min(82vw, 360px);
+  aspect-ratio: 4 / 3;
+  scroll-snap-align: start;
+}
+
+.project-track {
+  animation: tnano-project-scroll 56s linear infinite;
+  will-change: transform;
+}
+
+.project-carousel:hover .project-track,
+.project-carousel:focus-within .project-track {
+  animation-play-state: paused;
+}
+
+@keyframes tnano-project-scroll {
+  from {
+    transform: translate3d(0, 0, 0);
+  }
+
+  to {
+    transform: translate3d(-50%, 0, 0);
+  }
+}
+
+@media (min-width: 768px) {
+  .project-card {
+    width: min(42vw, 390px);
+  }
+}
+
+@media (min-width: 1280px) {
+  .project-card {
+    width: 372px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .project-track {
+    animation-duration: 160s;
+  }
+}
+
+@media (max-width: 767px) {
+  body {
+    padding-bottom: 82px;
+  }
+}
