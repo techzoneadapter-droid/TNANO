@@ -1,12 +1,14 @@
-const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH || "";
+const BASE_PATH = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/+$|\/$/g, "");
 
 export type ManagedAsset = {
   src: string;
 };
 
 export function assetUrl(path: string) {
+  if (!path) return path;
   if (/^(https?:)?\/\//.test(path)) return path;
-  return `${BASE_PATH}${path.startsWith("/") ? path : `/${path}`}`;
+  const normalizedPath = path.startsWith("/") ? path : `/${path}`;
+  return `${BASE_PATH}${normalizedPath}`;
 }
 
 export const DESIGN_ASSETS = {
