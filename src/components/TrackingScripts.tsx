@@ -76,7 +76,7 @@ export function TrackingScripts() {
       ) : null}
       <Script src={`${basePath}/tnano-replay.js`} strategy="afterInteractive" />
       <Script id="tnano-replay-init" strategy="afterInteractive">
-        {`window.TNANOReplay?.initReplay({endpoint:'${replayEndpoint}'}).catch(function(){});`}
+        {`(function(){var endpoint='${replayEndpoint}';var tries=0;function start(){if(window.__TNANOReplayStarted)return;if(window.TNANOReplay&&window.TNANOReplay.initReplay){window.__TNANOReplayStarted=true;window.TNANOReplay.initReplay({endpoint:endpoint}).catch(function(){window.__TNANOReplayStarted=false;});return;}if(++tries<120)setTimeout(start,250);}start();})();`}
       </Script>
       <MetaPageViewTracker enabled={Boolean(pixelId)} />
       <GaPageViewTracker enabled={Boolean(gaId)} />

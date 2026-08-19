@@ -18,6 +18,7 @@ declare global {
     TNANOReplay?: {
       markConversion?: () => Promise<void>;
     };
+    __TNANOReplayStarted?: boolean;
   }
 }
 
