@@ -6,8 +6,6 @@ import Script from "next/script";
 
 const defaultMetaPixelId = "2112262986353013";
 const defaultGaId = "G-YNKR6EDF5D";
-const replayEndpoint = "https://tnano-session-replay.baovan-tnano.workers.dev";
-const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/+$/g, "");
 
 function MetaPageViewTracker({ enabled }: { enabled: boolean }) {
   const pathname = usePathname();
@@ -74,10 +72,6 @@ export function TrackingScripts() {
           {`!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','${pixelId}');fbq('track','PageView');`}
         </Script>
       ) : null}
-      <Script src={`${basePath}/tnano-replay.js`} strategy="afterInteractive" />
-      <Script id="tnano-replay-init" strategy="afterInteractive">
-        {`(function(){var endpoint='${replayEndpoint}';var tries=0;function start(){if(window.__TNANOReplayStarted)return;if(window.TNANOReplay&&window.TNANOReplay.initReplay){window.__TNANOReplayStarted=true;window.TNANOReplay.initReplay({endpoint:endpoint}).catch(function(){window.__TNANOReplayStarted=false;});return;}if(++tries<120)setTimeout(start,250);}start();})();`}
-      </Script>
       <MetaPageViewTracker enabled={Boolean(pixelId)} />
       <GaPageViewTracker enabled={Boolean(gaId)} />
     </>

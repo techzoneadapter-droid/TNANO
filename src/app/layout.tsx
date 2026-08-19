@@ -8,6 +8,8 @@ import { DESIGN_ASSETS } from "@/config/designAssets";
 const inter = Inter({ subsets: ["latin", "vietnamese"], variable: "--font-inter" });
 
 const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://son-tnano.vn").replace(/\/+$/g, "");
+const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/+$/g, "");
+const replayEndpoint = "https://tnano-session-replay.baovan-tnano.workers.dev";
 const absoluteAssetUrl = (path: string) => `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
 
 export const metadata: Metadata = {
@@ -53,6 +55,12 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
     <html lang="vi" className={inter.variable}>
       <body className="font-sans antialiased">
         <TrackingScripts />
+        <script src={`${basePath}/tnano-replay.js`}></script>
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `(function(){var endpoint='${replayEndpoint}';var tries=0;function start(){if(window.__TNANOReplayStarted)return;if(window.TNANOReplay&&window.TNANOReplay.initReplay){window.__TNANOReplayStarted=true;window.TNANOReplay.initReplay({endpoint:endpoint}).catch(function(){window.__TNANOReplayStarted=false;});return;}if(++tries<120)setTimeout(start,250);}start();})();`,
+          }}
+        />
         <Script id="schema-organization" type="application/ld+json">
           {JSON.stringify(schema)}
         </Script>
