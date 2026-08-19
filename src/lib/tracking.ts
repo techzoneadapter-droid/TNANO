@@ -15,7 +15,15 @@ declare global {
     fbq?: (...args: unknown[]) => void;
     gtag?: (...args: unknown[]) => void;
     dataLayer?: unknown[];
+    TNANOReplay?: {
+      markConversion?: () => Promise<void>;
+    };
   }
+}
+
+export function markReplayConversion() {
+  if (typeof window === "undefined") return;
+  void window.TNANOReplay?.markConversion?.();
 }
 
 export function trackEvent(event: TrackingEvent, params: Record<string, unknown> = {}) {

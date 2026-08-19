@@ -2,7 +2,7 @@
 
 import { FormEvent, useEffect, useState } from "react";
 import { CheckCircle2, Loader2, Phone } from "lucide-react";
-import { trackEvent } from "@/lib/tracking";
+import { markReplayConversion, trackEvent } from "@/lib/tracking";
 import { isVietnamPhone } from "@/lib/validation";
 
 type FormKind = "color" | "dealer";
@@ -132,6 +132,7 @@ export function LeadForm({ kind, compact = false, interest = "" }: LeadFormProps
     }
 
     trackLead(kind);
+    markReplayConversion();
     setStatus("success");
     form.reset();
   }
