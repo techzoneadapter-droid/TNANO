@@ -47,10 +47,13 @@ function getStoredUtm(): UtmData {
 
 function trackLead(kind: FormKind) {
   if (typeof window === "undefined") return;
+  const formEvent = kind === "dealer" ? "DealerLead" : "ColorConsultLead";
+
   window.fbq?.("track", "Lead");
-  window.fbq?.("trackCustom", kind === "dealer" ? "DealerLead" : "ColorConsultLead");
-  trackEvent("Lead", { form: kind });
-  trackEvent(kind === "dealer" ? "DealerLead" : "ColorConsultLead", { form: kind });
+  window.fbq?.("trackCustom", formEvent, { form: kind });
+  window.gtag?.("event", "generate_lead", { form_kind: kind });
+  window.dataLayer?.push({ event: "Lead", form: kind });
+  window.dataLayer?.push({ event: formEvent, form: kind });
 }
 
 export function LeadForm({ kind, compact = false, interest = "" }: LeadFormProps) {
