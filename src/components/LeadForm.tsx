@@ -158,6 +158,7 @@ export function LeadForm({ kind, compact = false, interest = "" }: LeadFormProps
   return (
     <form
       onSubmit={handleSubmit}
+      data-tnano-lead-form={kind}
       className={`h-auto rounded-2xl border border-white/20 bg-white p-5 shadow-premium md:p-7 lg:p-8 ${isDealer ? "self-start lg:self-center" : ""}`}
     >
       <h3 className="text-xl font-black uppercase text-navy">{title}</h3>
