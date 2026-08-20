@@ -20,7 +20,7 @@ type UtmData = {
   landing_page: string;
 };
 
-const commonInput = "input bg-white/95 md:min-h-[52px]";
+const commonInput = "input lead-form-control bg-white/95 md:min-h-[52px]";
 const errorMessage = "Có lỗi xảy ra. Vui lòng gọi hotline 0237 358 6999 hoặc 0974 780 678.";
 const googleSheetsWebhookUrl =
   process.env.NEXT_PUBLIC_GOOGLE_SHEETS_WEBHOOK_URL ||
@@ -168,22 +168,22 @@ export function LeadForm({ kind, compact = false, interest = "" }: LeadFormProps
       <div className={`mt-5 grid gap-4 md:gap-5 ${compact ? "" : "sm:grid-cols-2"}`}>
         <label>
           <span className="label">Họ và tên *</span>
-          <input className={commonInput} name="name" required placeholder="Nguyễn Văn A" />
+          <input className={commonInput} type="text" name="name" required placeholder="Nguyễn Văn A" />
         </label>
         <label>
           <span className="label">Số điện thoại *</span>
-          <input className={commonInput} name="phone" required placeholder="0974 780 678" inputMode="tel" />
+          <input className={commonInput} type="tel" name="phone" required placeholder="0974 780 678" inputMode="tel" />
         </label>
 
         {isDealer ? (
           <label className={compact ? "" : "sm:col-span-2"}>
             <span className="label">Tỉnh / Thành phố *</span>
-            <input className={commonInput} name="province" required placeholder="Thanh Hóa, Hà Nội..." />
+            <input className={commonInput} type="text" name="province" required placeholder="Thanh Hóa, Hà Nội..." />
           </label>
         ) : (
           <label className={compact ? "" : "sm:col-span-2"}>
             <span className="label">Diện tích dự kiến *</span>
-            <input className={commonInput} name="area" required placeholder="Ví dụ: 120 m2" />
+            <input className={commonInput} type="text" name="area" required placeholder="Ví dụ: 120 m2" />
           </label>
         )}
       </div>

@@ -41,6 +41,64 @@ video {
 
 .input {
   @apply min-h-12 w-full rounded-md border border-slate-200 bg-white px-3 py-3.5 text-base outline-none transition focus:border-gold focus:ring-2 focus:ring-gold/30 sm:text-sm;
+  color: #07183f;
+  -webkit-text-fill-color: #07183f;
+  caret-color: #07183f;
+  opacity: 1;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.lead-form-control,
+[data-tnano-lead-form] input:not([type="hidden"]),
+[data-tnano-lead-form] textarea,
+[data-tnano-lead-form] select {
+  color: #07183f !important;
+  -webkit-text-fill-color: #07183f !important;
+  caret-color: #07183f;
+  opacity: 1;
+  appearance: none;
+  -webkit-appearance: none;
+}
+
+.lead-form-control:focus,
+.lead-form-control:active,
+[data-tnano-lead-form] input:not([type="hidden"]):focus,
+[data-tnano-lead-form] input:not([type="hidden"]):active,
+[data-tnano-lead-form] textarea:focus,
+[data-tnano-lead-form] textarea:active,
+[data-tnano-lead-form] select:focus,
+[data-tnano-lead-form] select:active {
+  color: #07183f !important;
+  -webkit-text-fill-color: #07183f !important;
+  caret-color: #07183f;
+}
+
+.input::placeholder,
+.lead-form-control::placeholder,
+[data-tnano-lead-form] input::placeholder,
+[data-tnano-lead-form] textarea::placeholder {
+  color: #64748b !important;
+  -webkit-text-fill-color: #64748b !important;
+  opacity: 1;
+}
+
+.lead-form-control:-webkit-autofill,
+.lead-form-control:-webkit-autofill:hover,
+.lead-form-control:-webkit-autofill:focus,
+[data-tnano-lead-form] input:-webkit-autofill,
+[data-tnano-lead-form] input:-webkit-autofill:hover,
+[data-tnano-lead-form] input:-webkit-autofill:focus,
+[data-tnano-lead-form] textarea:-webkit-autofill,
+[data-tnano-lead-form] textarea:-webkit-autofill:hover,
+[data-tnano-lead-form] textarea:-webkit-autofill:focus,
+[data-tnano-lead-form] select:-webkit-autofill,
+[data-tnano-lead-form] select:-webkit-autofill:hover,
+[data-tnano-lead-form] select:-webkit-autofill:focus {
+  color: #07183f !important;
+  -webkit-text-fill-color: #07183f !important;
+  caret-color: #07183f;
+  box-shadow: 0 0 0 1000px rgba(255, 255, 255, 0.95) inset;
 }
 
 .label {
