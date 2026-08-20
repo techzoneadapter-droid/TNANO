@@ -10,7 +10,6 @@
   var script = document.createElement("script");
   script.src = recorderUrl + "?v=" + Date.now();
   script.async = true;
-  script.crossOrigin = "anonymous";
   script.onerror = function () {
     window.__TNANOReplayLoaderStarted = false;
   };
