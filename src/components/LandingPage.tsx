@@ -11,8 +11,10 @@ import {
   ChevronDown,
   ClipboardCheck,
   Factory,
+  Gift,
   Gauge,
   Hammer,
+  Handshake,
   Headphones,
   Home,
   MapPin,
@@ -24,6 +26,7 @@ import {
   ShieldCheck,
   Sparkles,
   Store,
+  TrendingUp,
   Truck,
   Users,
   Waves,
@@ -581,50 +584,66 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section className="bg-white py-16 md:py-20">
-        <div className="section-shell grid items-center gap-8 lg:grid-cols-[.96fr_1.04fr] xl:gap-12">
-          <div className="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-slate-50 shadow-premium sm:aspect-[16/11] lg:aspect-[1/1] xl:aspect-[16/15]">
-            <ManagedImage asset={{ src: "/design/h%E1%BB%A3p%20t%C3%A1c.png" }} alt="Hợp tác kinh doanh cùng Sơn TNANO" fill sizes="(max-width: 1024px) 100vw, 48vw" className="object-contain object-center" unoptimized />
-          </div>
-          <div className="min-w-0">
-            <p className="text-[13px] font-black uppercase leading-6 text-redcta sm:text-sm">ĐỒNG HÀNH • HỢP TÁC • PHÁT TRIỂN</p>
-            <h2 className="mt-2 text-[clamp(28px,3.4vw,46px)] font-extrabold uppercase leading-[1.16] text-navy">
-              HỢP TÁC KINH DOANH<br />CÙNG TNANO
-            </h2>
-            <p className="mt-4 text-base leading-7 text-slate-700 md:text-lg md:leading-8">
-              TNANO tìm kiếm đại lý, nhà phân phối và đối tác kinh doanh trên toàn quốc, cùng xây dựng thị trường, phát triển hệ thống phân phối và hướng tới hợp tác lâu dài.
-            </p>
-            <div className="mt-6 grid gap-4 sm:grid-cols-2">
-              <div className="rounded-lg border border-redcta/25 bg-red-50 p-4 shadow-sm md:p-5">
-                <p className="text-xs font-black uppercase leading-5 text-redcta">CHÍNH SÁCH CHIẾT KHẤU</p>
-                <p className="mt-2 text-[clamp(24px,7vw,40px)] font-black uppercase leading-[1.1] text-redcta">LÊN ĐẾN <span className="text-[1.18em]">75%</span></p>
-                <p className="mt-3 text-sm leading-6 text-slate-700">Chính sách chiết khấu hấp dẫn dành cho đại lý và nhà phân phối theo từng chương trình áp dụng.</p>
-              </div>
-              <div className="rounded-lg border border-gold/45 bg-navy p-4 text-white shadow-glow md:p-5">
-                <p className="text-xs font-black uppercase leading-5 text-gold">ƯU ĐÃI NHẬP HÀNG</p>
-                <p className="mt-2 text-[clamp(19px,5.2vw,30px)] font-black uppercase leading-[1.24]">
-                  MUA ĐƠN <span className="text-[1.1em] text-gold">20 TRIỆU</span><br />
-                  NHẬN ĐẾN <span className="text-[1.1em] text-gold">50 TRIỆU</span><br />
-                  TIỀN HÀNG
-                </p>
-                <p className="mt-3 text-sm leading-6 text-white/82">Chương trình hỗ trợ nhập hàng dành cho đối tác theo chính sách TNANO tại từng thời điểm.</p>
-              </div>
+      <section className="bg-white py-10 md:py-14">
+        <div className="section-shell">
+          <div className="grid overflow-hidden rounded-lg border border-slate-100 bg-white shadow-premium lg:grid-cols-[.49fr_.51fr]">
+            <div className="relative min-h-[300px] overflow-hidden bg-navy sm:min-h-[420px] lg:min-h-[610px]">
+              <img src="/design/h%E1%BB%A3p%20t%C3%A1c.png" alt="Hợp tác kinh doanh cùng Sơn TNANO" className="h-full w-full object-cover object-center" loading="lazy" decoding="async" />
             </div>
-            <div className="mt-5 grid gap-2 sm:grid-cols-2">
-              {[
-                ["HỢP TÁC BỀN VỮNG", BadgeCheck],
-                ["LỢI NHUẬN HẤP DẪN", Gauge],
-                ["HỖ TRỢ KINH DOANH", Headphones],
-                ["ĐỒNG HÀNH DÀI LÂU", Users],
-              ].map(([label, Icon]) => (
-                <div key={label as string} className="flex min-h-11 items-center gap-2 rounded-md bg-slate-50 px-3 py-2 text-xs font-black uppercase leading-5 text-navy ring-1 ring-slate-100">
-                  <Icon className="h-4 w-4 shrink-0 text-gold" />
-                  <span>{label as string}</span>
+            <div className="flex min-w-0 flex-col justify-center px-4 py-6 sm:px-7 md:px-9 lg:px-8 xl:px-10">
+              <p className="text-xs font-black uppercase leading-5 text-gold sm:text-[13px]">ĐỒNG HÀNH - HỢP TÁC - PHÁT TRIỂN</p>
+              <h2 className="mt-2 text-[clamp(32px,4.2vw,58px)] font-black uppercase leading-[1.05] text-navy">
+                HỢP TÁC ĐẦU TƯ<br />
+                <span className="text-gold">CÙNG TNANO</span>
+              </h2>
+              <div className="mt-4 h-0.5 w-16 bg-gold" />
+              <p className="mt-5 max-w-2xl text-sm leading-6 text-slate-700 sm:text-base sm:leading-7">
+                TNANO tìm kiếm đối tác, đại lý và nhà phân phối trên toàn quốc để cùng xây dựng hệ thống phân phối bền vững và phát triển dài lâu.
+              </p>
+              <div className="mt-6 grid gap-3 md:grid-cols-2">
+                <div className="rounded-lg bg-navy p-4 text-white shadow-glow sm:p-5">
+                  <p className="text-xs font-black uppercase leading-5 text-gold">CHƯƠNG TRÌNH ƯU ĐÃI</p>
+                  <p className="mt-2 text-[clamp(17px,4.4vw,21px)] font-black uppercase leading-[1.18]">CHIẾT KHẤU LÊN ĐẾN</p>
+                  <p className="mt-1 text-[clamp(52px,11vw,78px)] font-black uppercase leading-none text-gold">75%</p>
+                  <p className="mt-3 text-xs leading-5 text-white/80">Mức chiết khấu áp dụng theo từng chương trình và chính sách hiện hành.</p>
                 </div>
-              ))}
+                <div className="relative rounded-lg bg-navy p-4 text-white shadow-glow sm:p-5">
+                  <p className="text-xs font-black uppercase leading-5 text-gold">ƯU ĐÃI NHẬP HÀNG</p>
+                  <div className="mt-2 flex items-start justify-between gap-2">
+                    <p className="text-[clamp(16px,3.8vw,20px)] font-black uppercase leading-[1.2]">
+                      MUA ĐƠN <span className="whitespace-nowrap text-gold">20 TRIỆU</span><br />
+                      NHẬN ĐẾN
+                    </p>
+                    <Gift className="mt-1 h-9 w-9 shrink-0 text-gold sm:h-11 sm:w-11" />
+                  </div>
+                  <p className="mt-1 flex items-end gap-2 font-black uppercase leading-none">
+                    <span className="text-[clamp(44px,7vw,62px)] text-gold">50</span>
+                    <span className="pb-1 text-[clamp(17px,3.5vw,22px)] leading-[1.08]">TRIỆU<br />TIỀN HÀNG</span>
+                  </p>
+                  <p className="mt-3 text-xs leading-5 text-white/80">Chương trình hỗ trợ nhập hàng dành cho đối tác theo chính sách TNANO tại từng thời điểm.</p>
+                </div>
+              </div>
+              <div className="mt-4 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
+                {[
+                  ["HỢP TÁC BỀN VỮNG", Handshake],
+                  ["LỢI NHUẬN HẤP DẪN", TrendingUp],
+                  ["CHÍNH SÁCH HỖ TRỢ TỐT", ShieldCheck],
+                  ["ĐỒNG HÀNH DÀI LÂU", Users],
+                ].map(([label, Icon]) => (
+                  <div key={label as string} className="flex min-h-[92px] flex-col items-center justify-center gap-2 rounded-lg border border-gold/20 bg-[#fffaf0] px-2.5 py-3 text-center text-[11px] font-black uppercase leading-4 text-navy shadow-sm">
+                    <Icon className="h-7 w-7 shrink-0 text-gold" />
+                    <span>{label as string}</span>
+                  </div>
+                ))}
+              </div>
+              <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <p className="flex items-center gap-2 text-sm font-extrabold leading-6 text-navy">
+                  <Phone className="h-5 w-5 shrink-0 text-gold" />
+                  <span>Hotline: 0237 358 6999&nbsp;&nbsp;|&nbsp;&nbsp;0974 780 678</span>
+                </p>
+                <a className="btn-primary min-h-11 px-5 py-2.5 text-[13px] sm:w-auto" href="#dealer-form" onClick={(event) => { scrollToTarget("dealer-form", "dealer_cta_click", event); window.history.replaceState(null, "", "#dealer-form"); trackEvent("ViewPromotion"); }}>ĐĂNG KÝ MỞ ĐẠI LÝ</a>
+              </div>
             </div>
-            <p className="mt-6 text-sm font-semibold leading-6 text-slate-600">Bạn đang kinh doanh VLXD, sơn hoặc muốn mở đại lý? Đăng ký để nhận chính sách hợp tác từ TNANO.</p>
-            <a className="btn-primary mt-4 w-full sm:w-auto" href="#dealer-form" onClick={(event) => { scrollToTarget("dealer-form", "dealer_cta_click", event); window.history.replaceState(null, "", "#dealer-form"); trackEvent("ViewPromotion"); }}>ĐĂNG KÝ MỞ ĐẠI LÝ</a>
           </div>
         </div>
       </section>
