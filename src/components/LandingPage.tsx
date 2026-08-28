@@ -584,43 +584,45 @@ export function LandingPage() {
         </div>
       </section>
 
-      <section className="bg-white py-10 md:py-14">
-        <div className="section-shell">
+      <section className="bg-white py-8 md:py-12">
+        <div className="mx-auto w-full max-w-[1520px] px-4 sm:px-6 lg:px-8">
           <div className="grid overflow-hidden rounded-lg border border-slate-100 bg-white shadow-premium lg:grid-cols-[.49fr_.51fr]">
-            <div className="relative min-h-[300px] overflow-hidden bg-navy sm:min-h-[420px] lg:min-h-[610px]">
-              <img src="/design/h%E1%BB%A3p%20t%C3%A1c.png" alt="Hợp tác kinh doanh cùng Sơn TNANO" className="h-full w-full object-cover object-center" loading="lazy" decoding="async" />
+            <div className="relative min-h-[280px] overflow-hidden bg-navy sm:min-h-[420px] lg:min-h-[560px] xl:min-h-[620px]">
+              <img src="/design/h%E1%BB%A3p%20t%C3%A1c.png" alt="Hợp tác kinh doanh cùng Sơn TNANO" className="h-full w-full object-cover object-center" loading="eager" decoding="async" />
             </div>
-            <div className="flex min-w-0 flex-col justify-center px-4 py-6 sm:px-7 md:px-9 lg:px-8 xl:px-10">
-              <p className="text-xs font-black uppercase leading-5 text-gold sm:text-[13px]">ĐỒNG HÀNH - HỢP TÁC - PHÁT TRIỂN</p>
-              <h2 className="mt-2 text-[clamp(32px,4.2vw,58px)] font-black uppercase leading-[1.05] text-navy">
+            <div className="flex min-w-0 flex-col justify-center px-4 py-6 sm:px-7 md:px-9 lg:px-9 xl:px-12">
+              <p className="text-xs font-black uppercase leading-5 text-gold sm:text-[13px] lg:text-sm">ĐỒNG HÀNH - HỢP TÁC - PHÁT TRIỂN</p>
+              <h2 className="mt-2 text-[clamp(34px,3.9vw,64px)] font-black uppercase leading-[1.3] tracking-[-0.01em] text-navy">
                 HỢP TÁC ĐẦU TƯ<br />
                 <span className="text-gold">CÙNG TNANO</span>
               </h2>
-              <div className="mt-4 h-0.5 w-16 bg-gold" />
+              <div className="mt-5 h-0.5 w-20 bg-gold" />
               <p className="mt-5 max-w-2xl text-sm leading-6 text-slate-700 sm:text-base sm:leading-7">
                 TNANO tìm kiếm đối tác, đại lý và nhà phân phối trên toàn quốc để cùng xây dựng hệ thống phân phối bền vững và phát triển dài lâu.
               </p>
-              <div className="mt-6 grid gap-3 md:grid-cols-2">
-                <div className="rounded-lg bg-navy p-4 text-white shadow-glow sm:p-5">
-                  <p className="text-xs font-black uppercase leading-5 text-gold">CHƯƠNG TRÌNH ƯU ĐÃI</p>
-                  <p className="mt-2 text-[clamp(17px,4.4vw,21px)] font-black uppercase leading-[1.18]">CHIẾT KHẤU LÊN ĐẾN</p>
-                  <p className="mt-1 text-[clamp(52px,11vw,78px)] font-black uppercase leading-none text-gold">75%</p>
-                  <p className="mt-3 text-xs leading-5 text-white/80">Mức chiết khấu áp dụng theo từng chương trình và chính sách hiện hành.</p>
-                </div>
-                <div className="relative rounded-lg bg-navy p-4 text-white shadow-glow sm:p-5">
-                  <p className="text-xs font-black uppercase leading-5 text-gold">ƯU ĐÃI NHẬP HÀNG</p>
-                  <div className="mt-2 flex items-start justify-between gap-2">
-                    <p className="text-[clamp(16px,3.8vw,20px)] font-black uppercase leading-[1.2]">
-                      MUA ĐƠN <span className="whitespace-nowrap text-gold">20 TRIỆU</span><br />
-                      NHẬN ĐẾN
-                    </p>
-                    <Gift className="mt-1 h-9 w-9 shrink-0 text-gold sm:h-11 sm:w-11" />
+              <div className="mt-6 grid items-stretch gap-3 lg:grid-cols-2">
+                <div className="flex flex-col rounded-lg bg-navy p-4 text-white shadow-glow sm:p-5">
+                  <p className="text-xs font-black uppercase leading-5 text-gold xl:text-sm">CHƯƠNG TRÌNH ƯU ĐÃI</p>
+                  <div className="mt-2 text-[clamp(21px,4.8vw,26px)] font-black uppercase leading-[1.18] xl:text-[26px]">
+                    CHIẾT KHẤU LÊN ĐẾN
                   </div>
-                  <p className="mt-1 flex items-end gap-2 font-black uppercase leading-none">
-                    <span className="text-[clamp(44px,7vw,62px)] text-gold">50</span>
-                    <span className="pb-1 text-[clamp(17px,3.5vw,22px)] leading-[1.08]">TRIỆU<br />TIỀN HÀNG</span>
-                  </p>
-                  <p className="mt-3 text-xs leading-5 text-white/80">Chương trình hỗ trợ nhập hàng dành cho đối tác theo chính sách TNANO tại từng thời điểm.</p>
+                  <div className="mt-1 text-[clamp(56px,9vw,78px)] font-black uppercase leading-[1.02] text-gold xl:text-[78px]">75%</div>
+                  <p className="mt-auto pt-3 text-xs leading-5 text-white/82 xl:text-sm xl:leading-6">Mức chiết khấu áp dụng theo từng chương trình và chính sách hiện hành.</p>
+                </div>
+                <div className="flex flex-col rounded-lg bg-navy p-4 text-white shadow-glow sm:p-5">
+                  <div className="flex items-start justify-between gap-4">
+                    <p className="text-xs font-black uppercase leading-5 text-gold xl:text-sm">ƯU ĐÃI NHẬP HÀNG</p>
+                    <Gift className="h-8 w-8 shrink-0 text-gold sm:h-10 sm:w-10" />
+                  </div>
+                  <div className="mt-2 space-y-1 font-black uppercase">
+                    <div className="text-[clamp(20px,4.4vw,25px)] leading-[1.16] xl:text-[25px]">MUA ĐƠN <span className="whitespace-nowrap text-gold">20 TRIỆU</span></div>
+                    <div className="text-[clamp(20px,4.4vw,25px)] leading-[1.16] xl:text-[25px]">NHẬN ĐẾN</div>
+                  </div>
+                  <div className="mt-1 flex items-end gap-3 font-black uppercase">
+                    <span className="whitespace-nowrap text-[clamp(56px,9vw,78px)] leading-[1.02] text-gold xl:text-[78px]">50</span>
+                    <span className="pb-1 text-[clamp(21px,4.4vw,27px)] leading-[1.12] xl:text-[27px]">TRIỆU<br />TIỀN HÀNG</span>
+                  </div>
+                  <p className="mt-auto pt-3 text-xs leading-5 text-white/82 xl:text-sm xl:leading-6">Chương trình hỗ trợ nhập hàng dành cho đối tác theo chính sách TNANO tại từng thời điểm.</p>
                 </div>
               </div>
               <div className="mt-4 grid grid-cols-2 gap-2 sm:gap-3 lg:grid-cols-4">
@@ -630,14 +632,14 @@ export function LandingPage() {
                   ["CHÍNH SÁCH HỖ TRỢ TỐT", ShieldCheck],
                   ["ĐỒNG HÀNH DÀI LÂU", Users],
                 ].map(([label, Icon]) => (
-                  <div key={label as string} className="flex min-h-[92px] flex-col items-center justify-center gap-2 rounded-lg border border-gold/20 bg-[#fffaf0] px-2.5 py-3 text-center text-[11px] font-black uppercase leading-4 text-navy shadow-sm">
-                    <Icon className="h-7 w-7 shrink-0 text-gold" />
+                  <div key={label as string} className="flex min-h-[88px] flex-col items-center justify-center gap-2 rounded-lg border border-gold/20 bg-[#fffaf0] px-2.5 py-3 text-center text-[11px] font-black uppercase leading-4 text-navy shadow-sm xl:min-h-[96px] xl:text-xs xl:leading-5">
+                    <Icon className="h-7 w-7 shrink-0 text-gold xl:h-8 xl:w-8" />
                     <span>{label as string}</span>
                   </div>
                 ))}
               </div>
               <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
-                <p className="flex items-center gap-2 text-sm font-extrabold leading-6 text-navy">
+                <p className="flex items-center gap-2 text-sm font-extrabold leading-6 text-navy lg:text-base">
                   <Phone className="h-5 w-5 shrink-0 text-gold" />
                   <span>Hotline: 0237 358 6999&nbsp;&nbsp;|&nbsp;&nbsp;0974 780 678</span>
                 </p>
