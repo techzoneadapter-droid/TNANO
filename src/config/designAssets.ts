@@ -16,6 +16,7 @@ export function assetUrl(path: string) {
 
 export const DESIGN_ASSETS = {
   logo: { src: "/design/logo.jpg" },
+  zaloLogo: { src: "/design/logozalo.png" },
   hero: {
     background: { src: "/design/toàn cảnh nhà máy 2.png" },
     poster: { src: "/design/chiết khấu.png" },
@@ -37,6 +38,11 @@ export const DESIGN_ASSETS = {
     shipping: { src: "/design/xuất hàng.png" },
     video: { src: "/design/bên trong nhà máy.mp4" },
   },
+  certificates: [
+    { src: "/certificates/giay-1.jpg" },
+    { src: "/certificates/giay-2.jpg" },
+    { src: "/certificates/giay-3.jpg" },
+  ],
   sections: {
     aboutValue: { src: "/design/kiến tạo giá trị bền vững.png" },
     aboutDelivery: { src: "/design/xuất hàng.png" },

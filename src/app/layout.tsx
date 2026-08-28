@@ -14,14 +14,14 @@ const absoluteAssetUrl = (path: string) => `${siteUrl}${path.startsWith("/") ? p
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Sơn TNANO | Sơn Nội Ngoại Thất Cao Cấp - Tập Đoàn Quốc Tế Vạn Xuân",
+  title: "Nhà Máy Sơn TNANO | Tuyển Đại Lý, Nhà Phân Phối & Báo Giá Công Trình",
   description:
-    "Khám phá Sơn TNANO - giải pháp sơn nội ngoại thất, tư vấn màu sơn, dự toán công trình và cơ hội trở thành đại lý TNANO với nhiều chính sách hỗ trợ hấp dẫn.",
+    "Nhà máy Sơn TNANO tuyển đại lý và nhà phân phối trên toàn quốc. Chính sách hợp tác hấp dẫn, hỗ trợ kinh doanh và cung cấp sơn số lượng lớn cho nhà thầu, công trình.",
   alternates: { canonical: "/" },
   openGraph: {
-    title: "Sơn TNANO | Sơn Nội Ngoại Thất Cao Cấp",
+    title: "Nhà Máy Sơn TNANO | Tuyển Đại Lý, Nhà Phân Phối & Báo Giá Công Trình",
     description:
-      "Sơn TNANO - Tập Đoàn Quốc Tế Vạn Xuân, tư vấn màu sơn, báo giá và chính sách đại lý.",
+      "Sơn TNANO tuyển đại lý, nhà phân phối và nhận báo giá sơn số lượng lớn cho nhà thầu, công trình.",
     url: siteUrl,
     siteName: "Sơn TNANO",
     images: [{ url: absoluteAssetUrl(DESIGN_ASSETS.sections.promotion.src), width: 1536, height: 1536 }],
@@ -30,11 +30,15 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Sơn TNANO | Sơn Nội Ngoại Thất Cao Cấp",
-    description: "Tư vấn màu sơn, báo giá và đăng ký đại lý TNANO.",
+    title: "Nhà Máy Sơn TNANO | Tuyển Đại Lý & Báo Giá Công Trình",
+    description: "Tuyển đại lý, nhà phân phối và báo giá sơn công trình TNANO.",
     images: [absoluteAssetUrl(DESIGN_ASSETS.sections.promotion.src)],
   },
   robots: { index: true, follow: true },
+  icons: {
+    icon: DESIGN_ASSETS.logo.src,
+    apple: DESIGN_ASSETS.logo.src,
+  },
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {

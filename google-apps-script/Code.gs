@@ -1,12 +1,14 @@
 const SHEET_COLOR_CONSULT = "TU_VAN_MAU";
 const SHEET_DEALER = "DANG_KY_DAI_LY";
+const SHEET_CONTRACTOR = "BAO_GIA_CONG_TRINH";
 
 const COLOR_HEADERS = [
   "Thời gian",
   "Họ tên",
   "Số điện thoại",
-  "Diện tích",
-  "Nhu cầu quan tâm",
+  "Nhu cầu cần tư vấn",
+  "Ghi chú",
+  "Nguồn quan tâm",
   "UTM Source",
   "UTM Campaign",
   "UTM Content",
@@ -18,6 +20,28 @@ const DEALER_HEADERS = [
   "Họ tên",
   "Số điện thoại",
   "Tỉnh/Thành phố",
+  "Quận/Huyện",
+  "Đang kinh doanh",
+  "Cửa hàng/mặt bằng",
+  "Mức vốn dự kiến",
+  "Hình thức hợp tác",
+  "Thời gian nhập hàng",
+  "UTM Source",
+  "UTM Campaign",
+  "UTM Content",
+  "Landing Page",
+];
+
+const CONTRACTOR_HEADERS = [
+  "Thời gian",
+  "Họ tên",
+  "Số điện thoại",
+  "Tỉnh/Thành phố",
+  "Loại công trình",
+  "Quy mô công trình",
+  "Khối lượng sơn dự kiến",
+  "Thời gian cần hàng",
+  "Ghi chú",
   "UTM Source",
   "UTM Campaign",
   "UTM Content",
@@ -37,7 +61,8 @@ function doPost(e) {
         submittedAt,
         data.name || "",
         data.phone || "",
-        data.area || "",
+        data.consultation_need || data.area || "",
+        data.note || "",
         data.interest || "",
         data.utm_source || data.utmSource || "",
         data.utm_campaign || data.utmCampaign || "",
@@ -56,6 +81,34 @@ function doPost(e) {
         data.name || "",
         data.phone || "",
         data.province || "",
+        data.district || "",
+        data.current_business || "",
+        data.has_premises || "",
+        data.expected_capital || "",
+        data.cooperation_type || "",
+        data.order_timing || "",
+        data.utm_source || data.utmSource || "",
+        data.utm_campaign || data.utmCampaign || "",
+        data.utm_content || data.utmContent || "",
+        data.landing_page || data.landingPage || "",
+      ]);
+
+      return json_({ ok: true });
+    }
+
+    if (data.type === "contractor") {
+      const sheet = getOrCreateSheet_(spreadsheet, SHEET_CONTRACTOR, CONTRACTOR_HEADERS);
+
+      sheet.appendRow([
+        submittedAt,
+        data.name || "",
+        data.phone || "",
+        data.province || "",
+        data.project_type || "",
+        data.project_scale || "",
+        data.paint_volume || "",
+        data.delivery_timing || "",
+        data.note || "",
         data.utm_source || data.utmSource || "",
         data.utm_campaign || data.utmCampaign || "",
         data.utm_content || data.utmContent || "",
@@ -97,16 +150,10 @@ function getOrCreateSheet_(spreadsheet, name, headers) {
 }
 
 function ensureHeaders_(sheet, headers) {
-  const lastColumn = sheet.getLastColumn();
-
   if (sheet.getLastRow() === 0) {
     sheet.appendRow(headers);
   } else {
     sheet.getRange(1, 1, 1, headers.length).setValues([headers]);
-
-    if (lastColumn > headers.length) {
-      sheet.getRange(1, headers.length + 1, 1, lastColumn - headers.length).clearContent();
-    }
   }
 
   sheet.setFrozenRows(1);

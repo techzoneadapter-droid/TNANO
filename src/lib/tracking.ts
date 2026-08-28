@@ -8,13 +8,21 @@ export type TrackingEvent =
   | "ClickPhone"
   | "ClickZalo"
   | "SelectPaintSolution"
-  | "ViewPromotion";
+  | "ViewPromotion"
+  | "agency_form_submit"
+  | "contractor_form_submit"
+  | "consultation_form_submit"
+  | "color_consult_form_submit"
+  | "phone_click"
+  | "zalo_click"
+  | "dealer_cta_click"
+  | "contractor_cta_click";
 
 declare global {
   interface Window {
     fbq?: (...args: unknown[]) => void;
     gtag?: (...args: unknown[]) => void;
-    dataLayer?: unknown[];
+    dataLayer?: Record<string, unknown>[];
     TNANOReplay?: {
       markConversion?: () => Promise<void>;
     };
@@ -29,7 +37,8 @@ export function markReplayConversion() {
 
 export function trackEvent(event: TrackingEvent, params: Record<string, unknown> = {}) {
   if (typeof window === "undefined") return;
-  window.dataLayer?.push({ event, ...params });
+  window.dataLayer = window.dataLayer || [];
+  window.dataLayer.push({ event, ...params });
   window.fbq?.("trackCustom", event, params);
   window.gtag?.("event", event, params);
 }

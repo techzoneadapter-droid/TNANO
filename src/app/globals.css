@@ -20,7 +20,34 @@ body {
 
 img,
 video {
+  display: block;
   max-width: 100%;
+  min-width: 0;
+}
+
+img {
+  height: auto;
+}
+
+video {
+  width: 100%;
+}
+
+.section-shell > * {
+  min-width: 0;
+}
+
+p,
+h1,
+h2,
+h3,
+h4,
+a,
+button,
+span,
+summary,
+label {
+  overflow-wrap: anywhere;
 }
 
 .section-shell {
@@ -106,15 +133,15 @@ video {
 }
 
 .btn-primary {
-  @apply inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-redcta px-5 py-3 text-sm font-extrabold uppercase text-white shadow-lg shadow-redcta/25 transition hover:-translate-y-0.5 hover:bg-red-700;
+  @apply inline-flex min-h-12 max-w-full items-center justify-center gap-2 whitespace-nowrap rounded-lg bg-redcta px-5 py-3 text-center text-sm font-extrabold uppercase leading-tight text-white shadow-lg shadow-redcta/25 transition hover:-translate-y-0.5 hover:bg-red-700;
 }
 
 .btn-secondary {
-  @apply inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-gold/70 bg-gold px-5 py-3 text-sm font-extrabold uppercase text-navy shadow-glow transition hover:-translate-y-0.5 hover:bg-yellow-300;
+  @apply inline-flex min-h-12 max-w-full items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-gold/70 bg-gold px-5 py-3 text-center text-sm font-extrabold uppercase leading-tight text-navy shadow-glow transition hover:-translate-y-0.5 hover:bg-yellow-300;
 }
 
 .btn-ghost {
-  @apply inline-flex min-h-12 items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-white/25 bg-white/10 px-5 py-3 text-sm font-bold text-white backdrop-blur transition hover:bg-white/20;
+  @apply inline-flex min-h-12 max-w-full items-center justify-center gap-2 whitespace-nowrap rounded-lg border border-white/25 bg-white/10 px-5 py-3 text-center text-sm font-bold leading-tight text-white backdrop-blur transition hover:bg-white/20;
 }
 
 .project-carousel {
@@ -172,6 +199,89 @@ video {
 
 @media (max-width: 767px) {
   body {
-    padding-bottom: 82px;
+    padding-bottom: calc(96px + env(safe-area-inset-bottom));
+  }
+
+  .btn-primary,
+  .btn-secondary,
+  .btn-ghost {
+    min-width: min(100%, 260px);
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  .hero-eyebrow {
+    font-size: 0.72rem;
+    line-height: 1.4;
+    letter-spacing: 0.04em;
+  }
+
+  .hero-eyebrow,
+  .hero-eyebrow span,
+  .hero-heading,
+  .hero-heading span {
+    max-width: 100%;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+
+  .hero-heading {
+    font-size: clamp(29.5px, 8vw, 32px);
+    line-height: 1.12;
+    letter-spacing: 0;
+  }
+
+  .hero-copy {
+    margin-top: 1.5rem;
+  }
+
+  .hero-policy-offer {
+    line-height: 1.22;
+  }
+
+  .hero-policy-offer-line {
+    display: block;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+
+  .hero-policy-offer-line + .hero-policy-offer-line {
+    margin-top: 0.25rem;
+  }
+
+  .promotion-offer-card {
+    padding: 1.25rem 1rem;
+  }
+
+  .promotion-offer-line {
+    display: block;
+    word-break: normal;
+    overflow-wrap: normal;
+    hyphens: none;
+  }
+
+  .promotion-offer-top {
+    font-size: clamp(20px, 5.5vw, 24px);
+    line-height: 1.28;
+  }
+
+  .promotion-offer-main {
+    margin-top: 0.35rem;
+    font-size: clamp(34px, 9.2vw, 42px);
+    line-height: 1.18;
+  }
+
+  .promotion-offer-bottom {
+    margin-top: 0.45rem;
+    font-size: clamp(20px, 5.4vw, 24px);
+    line-height: 1.28;
   }
 }
