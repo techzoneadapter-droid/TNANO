@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://son-tnano.vn/sitemap.xml
+Sitemap: https://tnano.chongthamtnano.com.vn/sitemap.xml

@@ -7,7 +7,7 @@ import { DESIGN_ASSETS } from "@/config/designAssets";
 
 const inter = Inter({ subsets: ["latin", "vietnamese"], variable: "--font-inter" });
 
-const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://son-tnano.vn").replace(/\/+$/g, "");
+const siteUrl = (process.env.NEXT_PUBLIC_SITE_URL || "https://tnano.chongthamtnano.com.vn").replace(/\/+$/g, "");
 const basePath = (process.env.NEXT_PUBLIC_BASE_PATH || "").replace(/\/+$/g, "");
 const replayEndpoint = "https://tnano-session-replay.baovan-tnano.workers.dev";
 const absoluteAssetUrl = (path: string) => `${siteUrl}${path.startsWith("/") ? path : `/${path}`}`;
