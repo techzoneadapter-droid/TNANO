@@ -588,7 +588,7 @@ export function LandingPage() {
         <div className="mx-auto w-full max-w-[1520px] px-4 sm:px-6 lg:px-8">
           <div className="grid overflow-hidden rounded-lg border border-slate-100 bg-white shadow-premium lg:grid-cols-[.49fr_.51fr]">
             <div className="relative min-h-[280px] overflow-hidden bg-navy sm:min-h-[420px] lg:min-h-[560px] xl:min-h-[620px]">
-              <img src="/design/h%E1%BB%A3p%20t%C3%A1c.png" alt="Hợp tác kinh doanh cùng Sơn TNANO" className="h-full w-full object-cover object-center" loading="eager" decoding="async" />
+              <img src={assetUrl("/design/hop-tac.png")} alt="Hợp tác kinh doanh cùng Sơn TNANO" className="h-full w-full object-cover object-center" loading="eager" decoding="async" />
             </div>
             <div className="flex min-w-0 flex-col justify-center px-4 py-6 sm:px-7 md:px-9 lg:px-9 xl:px-12">
               <p className="text-xs font-black uppercase leading-5 text-gold sm:text-[13px] lg:text-sm">ĐỒNG HÀNH - HỢP TÁC - PHÁT TRIỂN</p>
