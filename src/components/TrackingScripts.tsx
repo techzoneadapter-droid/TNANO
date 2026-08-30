@@ -46,7 +46,7 @@ function GaPageViewTracker({ enabled }: { enabled: boolean }) {
 
 export function TrackingScripts() {
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
-  const gaId = process.env.NEXT_PUBLIC_GA_ID;
+  const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-YNKR6EDF5D";
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
 
   return (
