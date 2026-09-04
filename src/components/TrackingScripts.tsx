@@ -47,7 +47,10 @@ function GaPageViewTracker({ enabled }: { enabled: boolean }) {
 export function TrackingScripts() {
   const pixelId = process.env.NEXT_PUBLIC_META_PIXEL_ID;
   const gaId = process.env.NEXT_PUBLIC_GA_ID || "G-YNKR6EDF5D";
+  const googleAdsId = process.env.NEXT_PUBLIC_GOOGLE_ADS_ID || "AW-18292573511";
   const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
+  const gtagLoaderId = gaId || googleAdsId;
+  const gtagConfig = [gaId, googleAdsId].filter(Boolean).map((id) => `gtag('config','${id}');`).join("");
 
   return (
     <>
@@ -59,11 +62,11 @@ export function TrackingScripts() {
           {`(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);})(window,document,'script','dataLayer','${gtmId}');`}
         </Script>
       ) : null}
-      {gaId ? (
+      {gtagLoaderId ? (
         <>
-          <Script src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`} strategy="afterInteractive" />
+          <Script src={`https://www.googletagmanager.com/gtag/js?id=${gtagLoaderId}`} strategy="afterInteractive" />
           <Script id="ga-init" strategy="afterInteractive">
-            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${gaId}');`}
+            {`window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());${gtagConfig}`}
           </Script>
         </>
       ) : null}
