@@ -58,6 +58,11 @@ function trackLead(kind: FormKind) {
   trackEvent(conversionEvent, { form_kind: kind === "color" ? "consultation" : kind });
   window.fbq?.("track", "Lead");
   window.gtag?.("event", "generate_lead", { form_kind: kind === "color" ? "consultation" : kind });
+  window.gtag?.("event", "conversion", {
+    send_to: "AW-18292573511/bwNMCIHv5-kcEMeKypJE",
+    value: 1.0,
+    currency: "VND",
+  });
 }
 
 function validateRequiredFields(form: HTMLFormElement, payload: LeadPayload) {
